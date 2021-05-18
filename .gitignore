@@ -105,7 +105,7 @@ fabric.properties
 .idea/codestream.xml
 
 # Data Base
-chinook.db
+db.sqlite3
 venv/
 
 .idea/
