@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Communities{% endblock %}
+
+{% block top %}Communities{% endblock %}
+
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'home' %} ">Home</a>
+    {% for community in communities %}
+        <p>{{ community }} :
+            {% if user in community.followers.all %}
+                followed
+            {%  else %}
+                not followed
+            {% endif %}
+        </p>
+    {% endfor %}
+{% endblock %}

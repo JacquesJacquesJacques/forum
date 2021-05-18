@@ -6,4 +6,7 @@
 
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
-{% block content %}You are loged in{% endblock %}
+{% block content %}
+    <p> Welcome {{ user.username }} </p>
+    <a class="btn btn-primary" href="{% url 'communities' %} ">All communities</a>
+{% endblock %}
