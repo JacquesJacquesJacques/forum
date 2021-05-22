@@ -9,7 +9,7 @@
 {% block content %}
     <a class="btn btn-primary" href="{% url 'home' %} ">Home</a>
     {% for community in communities %}
-        <p>{{ community }} :
+        <p><a class="btn btn-primary" href="{% url 'community' community.id %} ">{{ community }}</a> :
             {% if user in community.followers.all %}
                 followed
             {%  else %}
