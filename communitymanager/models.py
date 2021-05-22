@@ -16,3 +16,23 @@ class Profile(models.Model):
 
     def __str__(self):
         return "Profile of {0}".format(self.user.username)
+
+
+class Priority(models.Model):
+    label = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.label
+
+
+class Post(models.Model):
+    description = models.CharField(max_length=200)
+    date_creation = models.DateField
+    community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
+    event = models.BooleanField
+    date_event = models.DateField
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
