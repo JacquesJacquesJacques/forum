@@ -20,3 +20,9 @@ def community(request, id):
     posts = get_list_or_404(Post, community_id=id)
     community = get_object_or_404(Community, id=id)
     return render(request, 'communitymanager/community.html', {'community': community, 'posts': posts})
+
+
+@login_required()
+def post(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'communitymanager/post.html', {'post': post})

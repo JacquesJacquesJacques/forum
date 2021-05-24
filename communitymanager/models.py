@@ -33,6 +33,7 @@ class Post(models.Model):
     event = models.BooleanField
     date_event = models.DateField
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
 
     def __str__(self):
         return self.description
