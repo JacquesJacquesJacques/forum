@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}Communities{% endblock %}
+{% block title %}{{ community }}{% endblock %}
 
-{% block top %}{{ Community }}{% endblock %}
+{% block top %}{{ community }}{% endblock %}
 
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
 {% block content %}
-    <a href="{% url 'home' %} ">Home</a><a href="{% url 'post_creation' %}"><p>new post</p></a>
+    <a href="{% url 'home' %} ">Home</a> <a  href="{% url 'communities' %} "> Communities</a>
+    <a href="{% url 'post_creation' %}"><p>new post</p></a>
     {% for post in posts %}
-        <a href="{% url 'post' post.id %}"><p>{{ post }}</p></a>
+        <p><a href="{% url 'post' post.id %}">{{ post }}</a>  <a href="{% url 'post_edit' post.id %}">  edit</a></p>
     {% endfor %}
 {% endblock %}

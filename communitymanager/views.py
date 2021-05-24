@@ -41,6 +41,23 @@ def post_creation(request):
         post.author = request.user
         post.date_creation = datetime.now()
         post.save()
-        return redirect('communities')
+        return redirect('post', id=post.id)
     else:
         return render(request, 'communitymanager/new_post.html', {'form': form})
+
+
+@login_required()
+def post_edit(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.creation_date = datetime.now()
+            post.save()
+            return redirect('post', id=post.id)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'communitymanager/post_edit.html', {'form': form, 'post': post})
+

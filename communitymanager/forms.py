@@ -12,12 +12,3 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = 'description', 'community', 'priority', 'event', 'date_event', 'content'
 
-    def clean(self):
-
-        cleaned_data = super(PostForm, self).clean()
-        description = cleaned_data['description']
-
-        duplicate = Post.objects.filter(description=description)
-        if duplicate.exists():
-            raise forms.ValidationError('Post with same description already in database')
-        return cleaned_data

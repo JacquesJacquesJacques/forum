@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 
 class Community(models.Model):
@@ -29,12 +30,11 @@ class Priority(models.Model):
 
 class Post(models.Model):
     description = models.CharField(max_length=200)
-    date_creation = models.DateField(default=datetime.now())
+    date_creation = models.DateField(default=timezone.now())
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
     event = models.BooleanField(default=False)
-    if event:
-        date_event = models.DateField(default=datetime.now())
+    date_event = models.DateField(null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
     content = models.TextField()
 

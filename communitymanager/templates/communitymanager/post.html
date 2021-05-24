@@ -7,8 +7,9 @@
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
 {% block content %}
-    <a  href="{% url 'home' %} ">Home</a>
+    <a  href="{% url 'home' %} ">Home</a> <a  href="{% url 'community' post.community.id %} "> Community</a>
     <p>{{ post.content }}</p>
     <p>By {{ post.author }}, {{ post.date_creation }}</p>
+    <a href="{% url 'post_edit' post.id %}">  edit</a></p>
 
 {% endblock %}
