@@ -1,0 +1,7 @@
+<div class="row float-right pb-3">
+            <form class="form" method="POST" action="{% url 'post' post.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input  type="submit" value="Comment"/>
+        </form>
+</div>

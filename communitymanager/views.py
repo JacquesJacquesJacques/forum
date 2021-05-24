@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login
 
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from .models import Community, Post, Comment
 
 
@@ -27,11 +27,7 @@ def community(request, id):
     return render(request, 'communitymanager/community.html', {'community': community, 'posts': posts})
 
 
-@login_required()
-def post(request, id):
-    post = get_object_or_404(Post, id=id)
-    comments = Comment.objects.filter(post_id=id)
-    return render(request, 'communitymanager/post.html', {'post': post, 'comments': comments})
+
 
 
 @login_required()
@@ -62,3 +58,18 @@ def post_edit(request, id):
         form = PostForm(instance=post)
     return render(request, 'communitymanager/post_edit.html', {'form': form, 'post': post})
 
+
+@login_required()
+def post(request, id):
+    post = get_object_or_404(Post, id=id)
+    comments = Comment.objects.filter(post_id=id)
+    form = CommentForm(request.POST or None)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.author = request.user
+        comment.date_creation = datetime.now()
+        comment.post = post
+        comment.save()
+        return redirect('post', id=post.id)
+    else:
+        return render(request, 'communitymanager/post.html', {'post': post, 'comments': comments, 'form': form})

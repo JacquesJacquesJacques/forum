@@ -12,8 +12,12 @@
     <p>By {{ post.author }}, {{ post.date_creation }}</p>
     <a href="{% url 'post_edit' post.id %}">  edit</a></p>
 
+
+    <h4> Comments </h4>
     {% for comment in comments %}
         {%  include 'communitymanager/comment.html' %}
     {% endfor %}
+    <h4> Leave your comment </h4>
+    {% include 'communitymanager/writecomment.html' %}
 
 {% endblock %}
