@@ -6,7 +6,7 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404, redirec
 from django.contrib.auth import authenticate, login
 
 from .forms import PostForm
-from .models import Community, Post
+from .models import Community, Post, Comment
 
 
 @login_required()
@@ -30,7 +30,8 @@ def community(request, id):
 @login_required()
 def post(request, id):
     post = get_object_or_404(Post, id=id)
-    return render(request, 'communitymanager/post.html', {'post': post})
+    comments = Comment.objects.filter(post_id=id)
+    return render(request, 'communitymanager/post.html', {'post': post, 'comments': comments})
 
 
 @login_required()

@@ -35,8 +35,15 @@ class Post(models.Model):
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
     event = models.BooleanField(default=False)
     date_event = models.DateField(null=True, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
 
     def __str__(self):
         return self.description
+
+
+class Comment(models.Model):
+    date_creation = models.DateField(default=timezone.now())
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)

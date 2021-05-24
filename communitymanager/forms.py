@@ -12,3 +12,5 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = 'description', 'community', 'priority', 'event', 'date_event', 'content'
 
+
+
