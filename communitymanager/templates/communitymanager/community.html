@@ -7,7 +7,7 @@
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
 {% block content %}
-    <a href="{% url 'home' %} ">Home</a>
+    <a href="{% url 'home' %} ">Home</a><a href="{% url 'post_creation' %}"><p>new post</p></a>
     {% for post in posts %}
         <a href="{% url 'post' post.id %}"><p>{{ post }}</p></a>
     {% endfor %}

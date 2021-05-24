@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -27,12 +29,13 @@ class Priority(models.Model):
 
 class Post(models.Model):
     description = models.CharField(max_length=200)
-    date_creation = models.DateField
+    date_creation = models.DateField(default=datetime.now())
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
-    event = models.BooleanField
-    date_event = models.DateField
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.BooleanField(default=False)
+    if event:
+        date_event = models.DateField(default=datetime.now())
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
     content = models.TextField()
 
     def __str__(self):

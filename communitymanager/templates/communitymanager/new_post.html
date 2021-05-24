@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Create new post
+{% endblock %}
+{% block content %}
+    <div class="row pb-3">
+        <h2>Create new post</h2>
+    </div>
+
+    <div class="row float-right pb-3">
+        <form class="form" method="POST" action="{% url 'post_creation' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+            <button onclick="window.history.back();" class="btn btn-secondary" type="button">Cancel</button>
+        </form>
+    </div>
+{% endblock %}
