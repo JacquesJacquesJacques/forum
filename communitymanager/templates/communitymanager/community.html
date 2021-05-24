@@ -12,4 +12,11 @@
     {% for post in posts %}
         <p><a href="{% url 'post' post.id %}">{{ post }}</a>  <a href="{% url 'post_edit' post.id %}">  edit</a></p>
     {% endfor %}
+
+    {% if user in community.followers.all %}
+                <a href="{% url 'subscribe' community.id %} ">Follow</a>
+            {%  else %}
+                <a href="{% url 'subscribe' community.id %} ">Unfollow</a>
+    {% endif %}
 {% endblock %}
+

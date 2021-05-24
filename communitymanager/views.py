@@ -27,7 +27,18 @@ def community(request, id):
     return render(request, 'communitymanager/community.html', {'community': community, 'posts': posts})
 
 
-
+@login_required()
+def subscribe(request, id):
+    user = request.user
+    community = get_object_or_404(Community, id=id)
+    followers = community.followers.all()
+    if user in followers:
+        community.followers.remove(user)
+    else:
+        community.followers.add(user)
+    community.save()
+    communities = Community.objects.all()
+    return render(request, 'communitymanager/communities.html', {'communities': communities})
 
 
 @login_required()

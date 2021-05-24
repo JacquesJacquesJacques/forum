@@ -8,5 +8,6 @@ urlpatterns = [
     path('community/<int:id>', views.community, name='community'),
     path('post/<int:id>', views.post, name='post'),
     path('post/creation', views.post_creation, name="post_creation"),
-    path('post/edition/<int:id>', views.post_edit, name="post_edit")
+    path('post/edition/<int:id>', views.post_edit, name="post_edit"),
+    path('communities/<int:id>', views.subscribe, name="subscribe")
     ]
