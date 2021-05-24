@@ -51,7 +51,7 @@ def post_creation(request):
         post.save()
         return redirect('post', id=post.id)
     else:
-        return render(request, 'communitymanager/new_post.html', {'form': form})
+        return render(request, 'communitymanager/templates/utility/new_post.html', {'form': form})
 
 
 @login_required()
@@ -67,7 +67,7 @@ def post_edit(request, id):
             return redirect('post', id=post.id)
     else:
         form = PostForm(instance=post)
-    return render(request, 'communitymanager/post_edit.html', {'form': form, 'post': post})
+    return render(request, 'communitymanager/templates/utility/post_edit.html', {'form': form, 'post': post})
 
 
 @login_required()

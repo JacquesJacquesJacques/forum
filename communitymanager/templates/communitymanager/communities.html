@@ -4,17 +4,18 @@
 
 {% block top %}Communities{% endblock %}
 
-{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+{% block nav %}
+    {% include 'registration/logout.html' %}
+    {% include 'nav/link_home.html' %}
+{% endblock %}
 
 {% block content %}
-    <a href="{% url 'home' %} ">Home</a>
     {% for community in communities %}
+
         <p><a href="{% url 'community' community.id %} ">{{ community }}</a> :
-            {% if user in community.followers.all %}
-                <a href="{% url 'subscribe' community.id %} ">Follow</a>
-            {%  else %}
-                <a href="{% url 'subscribe' community.id %} ">Unfollow</a>
-            {% endif %}
+
+            {% include 'communitymanager/../utility/follow.html' %}
+
         </p>
 
     {% endfor %}

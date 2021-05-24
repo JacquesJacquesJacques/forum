@@ -11,8 +11,8 @@
         <form class="form" method="POST" action="{% url 'post_creation' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="btn btn-primary" type="submit" value="Submit"/>
-            <button onclick="window.history.back();" class="btn btn-secondary" type="button">Cancel</button>
+            <input type="submit" value="Submit"/>
+            <button onclick="window.history.back();" type="button">Cancel</button>
         </form>
     </div>
 {% endblock %}

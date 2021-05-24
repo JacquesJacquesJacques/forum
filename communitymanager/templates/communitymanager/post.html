@@ -4,20 +4,28 @@
 
 {% block top %}{{ post }}{% endblock %}
 
-{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+{% block nav %}
+
+    {% include 'nav/link_home.html' %}
+    {%  include 'nav/link_communities.html' %}
+    {%  include 'nav/link_community.html' %}
+    {% include 'registration/logout.html' %}
+{% endblock %}
 
 {% block content %}
-    <a  href="{% url 'home' %} ">Home</a> <a  href="{% url 'community' post.community.id %} "> Community</a>
-    <p>{{ post.content }}</p>
+    <div class="container">
+        <p>{{ post.content }}</p>
+    </div>
+
     <p>By {{ post.author }}, {{ post.date_creation }}</p>
     <a href="{% url 'post_edit' post.id %}">  edit</a></p>
 
 
     <h4> Comments </h4>
     {% for comment in comments %}
-        {%  include 'communitymanager/comment.html' %}
+        {%  include 'communitymanager/../utility/comment.html' %}
     {% endfor %}
     <h4> Leave your comment </h4>
-    {% include 'communitymanager/writecomment.html' %}
+    {% include 'communitymanager/../utility/writecomment.html' %}
 
 {% endblock %}

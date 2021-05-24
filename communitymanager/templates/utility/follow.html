@@ -1,0 +1,5 @@
+{% if user in community.followers.all %}
+    <a href="{% url 'subscribe' community.id %} ">Follow</a>
+{%  else %}
+    <a href="{% url 'subscribe' community.id %} ">Unfollow</a>
+{% endif %}
