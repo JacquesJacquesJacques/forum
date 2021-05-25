@@ -4,9 +4,9 @@
 {% endblock %}
 {% block nav %}
     {% include 'nav/link_home.html' %}
-    {%  include 'nav/link_communities.html' %}
-    {% include 'registration/logout.html' %}
+    {% include 'nav/link_communities.html' %}
 {% endblock %}
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 {% block content %}
     <div class="row pb-3">
         <h2>Create new post</h2>

@@ -2,9 +2,15 @@
 {% block title %}
     Edit {{ post }}
 {% endblock %}
+{% block nav %}
+    {% include 'nav/link_home.html' %}
+    {% include 'nav/link_communities.html' %}
+    {% include 'nav/link_community.html' %}
+{% endblock %}
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 {% block content %}
     <div class="row pb-3">
-        <h2>Edit post "{{ post }}""</h2>
+        <h2>Edit post "{{ post }}"</h2>
     </div>
 
     <div class="row float-right pb-3">

@@ -1,29 +1,45 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ post }}{% endblock %}
 
-{% block top %}{{ post }}{% endblock %}
+
 
 {% block nav %}
-
     {% include 'nav/link_home.html' %}
-    {%  include 'nav/link_communities.html' %}
-    {%  include 'nav/link_community.html' %}
-    {% include 'registration/logout.html' %}
+    {% include 'nav/link_communities.html' %}
+    {% include 'nav/link_community.html' %}
 {% endblock %}
-
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+{% block top %}{{ post }}{% endblock %}
 {% block content %}
-    <div class="container">
-        <p>{{ post.content }}</p>
+
+    <div class="col-md-10">
+        <div class="row mb-5">
+            <div class="col-md-9">
+                <h3>{{ post.content }}</h3>
+            </div>
+            <div class="col-md-3">
+                <footer>
+                    <h5>{{ post.author}}, {{ post.date_creation }}
+                    {% if user == post.author %}
+                        <a href="{% url 'post_edit' post.id %}">  <img src="{% static 'img/pencil.svg' %}" width="20" height="20"></a>
+                    {% endif %}
+                    </h5>
+                </footer>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <h3 class="display-3">Comments</h3>
+                {% include 'utility/comments.html' %}
+                <h4> <i class="bi bi-chat-left-dots"></i> Leave your comment </h4>
+                {% include '../utility/writecomment.html' %}
+            </div>
+        </div>
     </div>
 
-    <p>By {{ post.author }}, {{ post.date_creation }}</p>
-    <a href="{% url 'post_edit' post.id %}">  edit</a></p>
 
-
-    <h4> Comments </h4>
-        {% include 'utility/comments.html' %}
-    <h4> Leave your comment </h4>
-    {% include '../utility/writecomment.html' %}
 
 {% endblock %}

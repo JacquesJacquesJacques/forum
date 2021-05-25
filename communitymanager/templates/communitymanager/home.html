@@ -3,10 +3,13 @@
 {% block title %}Home{% endblock %}
 
 {% block top %}Home{% endblock %}
-
+{% block nav %}
+    {% include 'nav/link_home.html' %}
+    {% include 'nav/link_communities.html' %}
+{% endblock %}
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
 {% block content %}
-    <p> Welcome {{ user.username }} </p>
+    <h4> Welcome <strong>{{ user.username }}</strong> </h4>
     <a href="{% url 'communities' %} ">All communities</a>
 {% endblock %}

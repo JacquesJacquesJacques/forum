@@ -41,6 +41,9 @@ class Post(models.Model):
     def __str__(self):
         return self.description
 
+    class Meta:
+        ordering = ['-date_creation']
+
 
 class Comment(models.Model):
     date_creation = models.DateField(default=timezone.now())

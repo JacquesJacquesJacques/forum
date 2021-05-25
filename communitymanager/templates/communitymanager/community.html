@@ -6,28 +6,50 @@
 
 {% block nav %}
     {% include 'nav/link_home.html' %}
-    {%  include 'nav/link_communities.html' %}
-    {% include 'registration/logout.html' %}
+    {% include 'nav/link_communities.html' %}
 {% endblock %}
-
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 {% block content %}
-    <button type="button" class="btn btn-default btn-lg">
-        <a href="{% url 'post_creation'%}">
+    <div class="col-md-10">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="row g-0 border flex-md-row mb-5 shadow-sm h-md-250 position-relative">
+                    <div class="col">
+                        <div class="row">
+                            <h1 class="display-5 text-dark">
+                                <strong><a href="{% url 'post' post.id %}" class="text-dark">{{ post }}</a></strong>
+                            </h1>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h3>{{ post.content|truncatewords:30 }}</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h4><a href="{% url 'post' post.id %}" class="text-dark"><i class="bi bi-layout-text-sidebar"></i> Show more...</a></h4>
+                            </div>
+                            <div class = "col-md-3">
+                                <h4 class="text-end"><i class="bi bi-person"></i> {{ post.author }}
+                                    <i class="bi bi-calendar-event"></i> {{ post.date_creation }}
+                                    {% if user == post.author %}
+                                        <a href="{% url 'post_edit' post.id %}">  <i class="bi bi-pencil"></i></a>
+                                {% endif %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    {% else %}
+        <h3> No post to display...</h3>
+    {% endif %}
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-default btn-sm">
+            <a href="{% url 'post_creation'%}">
             <p><img src="{% static 'img/pencil-square.svg' %}" width="20" height="20"> New post</p></a>
-    </button>
-    {% for post in posts %}
+        </button>
+    </div>
 
-        <h3><a href="{% url 'post' post.id %}">{{ post }}</a>
-            {% if user == post.author %}
-                <a href="{% url 'post_edit' post.id %}">  <img src="{% static 'img/pencil.svg' %}" width="20" height="20"></a>
-            {% endif %}
-        </h3>
-
-        <blockquote>
-            <footer>{{ post.author }}, {{ post.date_creation }}</footer>
-        </blockquote>
-
-    {% endfor %}
 
 {% endblock %}
 
