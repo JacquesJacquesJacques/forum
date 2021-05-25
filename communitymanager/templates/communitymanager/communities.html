@@ -5,18 +5,17 @@
 {% block top %}Communities{% endblock %}
 
 {% block nav %}
-    {% include 'registration/logout.html' %}
     {% include 'nav/link_home.html' %}
+    {% include 'registration/logout.html' %}
 {% endblock %}
 
 {% block content %}
     {% for community in communities %}
 
-        <p><a href="{% url 'community' community.id %} ">{{ community }}</a> :
+        <h3><a href="{% url 'community' community.id %} ">{{ community }}</a>
+            {% include 'communitymanager/../utility/follow.html' %}</h3>
 
-            {% include 'communitymanager/../utility/follow.html' %}
 
-        </p>
 
     {% endfor %}
 {% endblock %}

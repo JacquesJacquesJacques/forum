@@ -51,23 +51,26 @@ def post_creation(request):
         post.save()
         return redirect('post', id=post.id)
     else:
-        return render(request, 'communitymanager/templates/utility/new_post.html', {'form': form})
+        return render(request, 'utility/new_post.html', {'form': form, 'community': community})
 
 
 @login_required()
 def post_edit(request, id):
     post = get_object_or_404(Post, id=id)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.creation_date = datetime.now()
-            post.save()
-            return redirect('post', id=post.id)
+    if request.user == post.author:
+        if request.method == "POST":
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.creation_date = datetime.now()
+                post.save()
+                return redirect('post', id=post.id)
+        else:
+            form = PostForm(instance=post)
+        return render(request, 'utility/post_edit.html', {'form': form, 'post': post})
     else:
-        form = PostForm(instance=post)
-    return render(request, 'communitymanager/templates/utility/post_edit.html', {'form': form, 'post': post})
+        return redirect('post', id=post.id)
 
 
 @login_required()
@@ -84,3 +87,8 @@ def post(request, id):
         return redirect('post', id=post.id)
     else:
         return render(request, 'communitymanager/post.html', {'post': post, 'comments': comments, 'form': form})
+
+@login_required()
+def show_comments(request, id):
+    comments = Comment.objects.filter(post_id=id)
+    return render(request, 'communitymanager/community.html')

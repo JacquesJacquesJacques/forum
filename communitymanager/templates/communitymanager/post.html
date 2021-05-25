@@ -22,10 +22,8 @@
 
 
     <h4> Comments </h4>
-    {% for comment in comments %}
-        {%  include 'communitymanager/../utility/comment.html' %}
-    {% endfor %}
+        {% include 'utility/comments.html' %}
     <h4> Leave your comment </h4>
-    {% include 'communitymanager/../utility/writecomment.html' %}
+    {% include '../utility/writecomment.html' %}
 
 {% endblock %}

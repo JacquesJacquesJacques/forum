@@ -1,5 +1,6 @@
+{% load static %}
 {% if user in community.followers.all %}
-    <a href="{% url 'subscribe' community.id %} ">Follow</a>
+    <a href="{% url 'subscribe' community.id %} "><img src="{% static 'img/suit-heart.svg' %}" width="20" height="20"></a>
 {%  else %}
-    <a href="{% url 'subscribe' community.id %} ">Unfollow</a>
+    <a href="{% url 'subscribe' community.id %} "><img src="{% static 'img/suit-heart-fill.svg' %}" width="20" height="20"></a>
 {% endif %}

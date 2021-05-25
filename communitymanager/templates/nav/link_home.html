@@ -1,3 +1,6 @@
+{% load static %}
 <div class="col-xs-3">
-    <a type="button" class="btn btn-primary" href="{% url 'home' %} ">Home</a>
+    <a type="button" class="btn btn-primary" href="{% url 'home' %} ">
+        <img src="{% static 'img/house.svg' %}" width="20" height="20">  Home
+    </a>
 </div>

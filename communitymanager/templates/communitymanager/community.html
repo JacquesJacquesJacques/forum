@@ -1,21 +1,33 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ community }}{% endblock %}
 
 {% block top %}{{ community }}{% endblock %}
 
 {% block nav %}
-    {% include 'registration/logout.html' %}
     {% include 'nav/link_home.html' %}
     {%  include 'nav/link_communities.html' %}
+    {% include 'registration/logout.html' %}
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'post_creation' %}"><p>new post</p></a>
+    <button type="button" class="btn btn-default btn-lg">
+        <a href="{% url 'post_creation'%}">
+            <p><img src="{% static 'img/pencil-square.svg' %}" width="20" height="20"> New post</p></a>
+    </button>
     {% for post in posts %}
-        <p><a href="{% url 'post' post.id %}">{{ post }}</a>  <a href="{% url 'post_edit' post.id %}">  edit</a></p>
+
+        <h3><a href="{% url 'post' post.id %}">{{ post }}</a>
+            {% if user == post.author %}
+                <a href="{% url 'post_edit' post.id %}">  <img src="{% static 'img/pencil.svg' %}" width="20" height="20"></a>
+            {% endif %}
+        </h3>
+
+        <blockquote>
+            <footer>{{ post.author }}, {{ post.date_creation }}</footer>
+        </blockquote>
+
     {% endfor %}
 
-    {% include 'communitymanager/../utility/follow.html' %}
 {% endblock %}
 

@@ -2,17 +2,24 @@
 {% block title %}
     Create new post
 {% endblock %}
+{% block nav %}
+    {% include 'nav/link_home.html' %}
+    {%  include 'nav/link_communities.html' %}
+    {% include 'registration/logout.html' %}
+{% endblock %}
 {% block content %}
     <div class="row pb-3">
         <h2>Create new post</h2>
     </div>
 
     <div class="row float-right pb-3">
-        <form class="form" method="POST" action="{% url 'post_creation' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit"/>
-            <button onclick="window.history.back();" type="button">Cancel</button>
+        <form class="form-floating" method="POST" action="{% url 'post_creation' %}">
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit"/>
+                <button onclick="window.history.back();" type="button" class="btn btn-default">Cancel</button>
+            </div>
         </form>
     </div>
 {% endblock %}
