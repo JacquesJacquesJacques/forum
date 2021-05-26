@@ -1,0 +1,7 @@
+<!-- Template to display the comments under a post -->
+{% for comment in comments %}
+    <blockquote>
+        <p>{{ comment.content }}</p>
+        <footer>{{ comment.author}}, {{ comment.date_creation }}</footer>
+    </blockquote>
+{% endfor %}

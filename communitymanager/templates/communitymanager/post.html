@@ -1,45 +1,36 @@
+<!-- Template that focuses on a particular post, displaying its content and comments -->
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}{{ post }}{% endblock %}
-
-
 
 {% block nav %}
     {% include 'nav/link_home.html' %}
     {% include 'nav/link_communities.html' %}
     {% include 'nav/link_community.html' %}
 {% endblock %}
-{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
-{% block top %}{{ post }}{% endblock %}
-{% block content %}
 
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+
+{% block top %}{{ post }}{% endblock %}
+
+{% block content %}
     <div class="col-md-10">
         <div class="row mb-5">
-            <div class="col-md-9 text-justify">
+            <div class="col-md-9 text-justify border border-right-0 border-top-0 pb-2 pl-4">
                 <h3>{{ post.description }}</h3>
             </div>
             <div class="col-md-3">
-                <footer>
-                    <h5>{{ post.author}}, {{ post.date_creation }}
-                    {% if user == post.author %}
-                        <a href="{% url 'post_edit' post.id %}">  <img src="{% static 'img/pencil.svg' %}" width="20" height="20"></a>
-                    {% endif %}
-                    </h5>
-                </footer>
+                {% include 'utility/post_signature.html' %}
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-9">
                 <h3 class="display-3">Comments</h3>
-                {% include 'utility/comments.html' %}
+                {% include 'utility/post_comments.html' %}
                 <h4> <i class="bi bi-chat-left-dots"></i> Leave your comment </h4>
-                {% include '../utility/writecomment.html' %}
+                {% include '../utility/comment_write.html' %}
             </div>
         </div>
     </div>
-
-
-
+    {% include "nav/link_newpost.html" %}
 {% endblock %}

@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="login">
-        <input type="hidden" name="next" value="{{ next }}">
-    </form>
-</body>
-</html>
+<!-- The login page -->
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-success bg-success" type="submit" value="login">
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+{% endblock %}

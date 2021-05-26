@@ -1,14 +1,17 @@
+<!-- Template that displays every post relative to a community -->
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}{{ community }}{% endblock %}
 
-{% block top %}{{ community }}{% endblock %}
+{% block title %}{{ community }}{% endblock %}
 
 {% block nav %}
     {% include 'nav/link_home.html' %}
     {% include 'nav/link_communities.html' %}
 {% endblock %}
+
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+
+{% block top %}{{ community }}{% endblock %}
+
 {% block content %}
     <div class="col-md-10">
         {% if posts %}
@@ -20,35 +23,15 @@
                                 <strong><a href="{% url 'post' post.id %}" class="text-dark">{{ post }}</a></strong>
                             </h1>
                         </div>
-                        <div class="row justify-text-center ">
-                            <h3 class="text-dark ml-5 mr-5 ">{{ post.description|truncatewords:30 }}</h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h4><a href="{% url 'post' post.id %}" class="text-dark"><i class="bi bi-layout-text-sidebar"></i> Show more...</a></h4>
-                            </div>
-                            <div class = "col-md-3">
-                                <h4 class="text-end"><i class="bi bi-person"></i> {{ post.author }}
-                                    <i class="bi bi-calendar-event"></i> {{ post.date_creation }}
-                                    {% if user == post.author %}
-                                        <a href="{% url 'post_edit' post.id %}">  <i class="bi bi-pencil"></i></a>
-                                {% endif %}
-                                </h4>
-                            </div>
-                        </div>
+                        {% include 'utility/post_detail.html' %}
                     </div>
                 </div>
             {% endfor %}
-    {% else %}
-        <h3> No post to display...</h3>
-    {% endif %}
+        {% else %}
+            <h3> No post to display...</h3>
+        {% endif %}
     </div>
-    <div class="col-md-2 text-center">
-        <button type="button" class="btn btn-white btn-sm">
-            <a href="{% url 'post_creation'%}">
-            <h3><i class="bi bi-pencil-square"></i> New post</h3></a>
-        </button>
-    </div>
+    {% include "nav/link_newpost.html" %}
 
 
 {% endblock %}

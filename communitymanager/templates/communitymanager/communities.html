@@ -1,26 +1,27 @@
+<!-- Template of the page displaying every community and giving the user the possibility to follow or unfollow them -->
 {% extends 'base.html' %}
 
 {% block title %}Communities{% endblock %}
-
-{% block top %}Communities{% endblock %}
 
 {% block nav %}
     {% include 'nav/link_home.html' %}
     {% include 'nav/link_communities.html' %}
 {% endblock %}
-{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
-{% block content %}
 
+{% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+
+{% block top %}Communities{% endblock %}
+
+{% block content %}
     {% for community in communities %}
         <div class="col-md-4">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0"><a href="{% url 'community' community.id %} ">{{ community }}</a>
-                        {% include 'communitymanager/../utility/follow.html' %}
+                        {% include 'communitymanager/../utility/community_follow.html' %}
                     </h3>
                 </div>
             </div>
         </div>
     {% endfor %}
-
 {% endblock %}

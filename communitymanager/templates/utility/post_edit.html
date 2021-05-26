@@ -1,3 +1,4 @@
+<!-- Template to edit existing posts -->
 {% extends 'base.html' %}
 {% block title %}
     Edit {{ post }}
@@ -8,17 +9,14 @@
     {% include 'nav/link_community.html' %}
 {% endblock %}
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+{% block top %}Edit post "{{ post }}"{% endblock %}
 {% block content %}
-    <div class="row pb-3">
-        <h2>Edit post "{{ post }}"</h2>
-    </div>
-
-    <div class="row float-right pb-3">
-            <form class="form" method="POST" action="{% url 'post_edit' post.id %}">
+    <div class="row justify-content-center pb-3">
+        <form method="POST" action="{% url 'post_edit' post.id %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="btn btn-primary" type="submit" value="Submit"/>
-            <button onclick="window.history.back();" class="btn btn-secondary" type="button">Cancel</button>
+            <input class="btn btn-success" type="submit" value="Submit">
+            <button onclick="window.history.back();" class="btn btn-danger" type="button">Cancel</button>
         </form>
     </div>
 {% endblock %}

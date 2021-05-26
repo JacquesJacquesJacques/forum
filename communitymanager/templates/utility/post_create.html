@@ -1,3 +1,4 @@
+<!-- Template to create a new post -->
 {% extends 'base.html' %}
 {% block title %}
     Create new post
@@ -7,18 +8,15 @@
     {% include 'nav/link_communities.html' %}
 {% endblock %}
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
+{% block top %}Create new post{% endblock %}
 {% block content %}
-    <div class="row pb-3">
-        <h2>Create new post</h2>
-    </div>
-
-    <div class="row float-right pb-3">
+    <div class="row justify-content-center pb-3">
         <form class="form-floating" method="POST" action="{% url 'post_creation' %}">
             <div class="form-group">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Submit"/>
-                <button onclick="window.history.back();" type="button" class="btn btn-default">Cancel</button>
+                <input class="btn btn-success" type="submit" value="Submit"/>
+                <button onclick="window.history.back();" type="button" class="btn btn-danger">Cancel</button>
             </div>
         </form>
     </div>

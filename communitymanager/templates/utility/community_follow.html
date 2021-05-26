@@ -1,4 +1,4 @@
-{% load static %}
+<!-- Template to display the subscription buttons next to communities -->
 {% if user in community.followers.all %}
     <a href="{% url 'subscribe' community.id %} "><i class="bi bi-heart-fill text-danger"></i></a>
 {%  else %}
