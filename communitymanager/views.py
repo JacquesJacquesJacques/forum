@@ -11,7 +11,8 @@ from .models import Community, Post, Comment
 
 @login_required()
 def home(request):
-    return render(request, 'communitymanager/home.html')
+    posts = Post.objects.filter(community__followers__username__contains=request.user.username)
+    return render(request, 'communitymanager/home.html', {'posts': posts})
 
 
 @login_required()

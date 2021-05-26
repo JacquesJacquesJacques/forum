@@ -29,17 +29,17 @@ class Priority(models.Model):
 
 
 class Post(models.Model):
-    description = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     date_creation = models.DateField(default=timezone.now())
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
     event = models.BooleanField(default=False)
     date_event = models.DateField(null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
+    description = models.TextField()
 
     def __str__(self):
-        return self.description
+        return self.title
 
     class Meta:
         ordering = ['-date_creation']

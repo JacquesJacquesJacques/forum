@@ -10,7 +10,7 @@ class ConnexionForm(forms.Form):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = 'description', 'community', 'priority', 'event', 'date_event', 'content'
+        fields = 'title', 'community', 'priority', 'event', 'date_event', 'description'
 
 
 class CommentForm(forms.ModelForm):

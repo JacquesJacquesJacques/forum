@@ -10,6 +10,33 @@
 {% block logout %}{% include 'registration/logout.html' %}{% endblock %}
 
 {% block content %}
-    <h4> Welcome <strong>{{ user.username }}</strong> </h4>
-    <a href="{% url 'communities' %} ">All communities</a>
+    <h4 class="display-4"> Welcome <strong>{{ user.username }}</strong>, here are all the posts of your favourite communities </h4>
+{% for post in posts %}
+    <div class="row g-0 border border-left-0 border-bottom-0 flex-md-row mb-5 h-md-250">
+                    <div class="col ml-6">
+                        <div class="row">
+                            <h1 class="display-5 text-dark ml-4 mt-3">
+                                <strong><a href="{% url 'post' post.id %}" class="text-dark">{{ post }}</a></strong>, in
+                                <a href="{% url 'community' post.community.id %}" class="text-dark">{{ post.community }}</a>
+                            </h1>
+                        </div>
+                        <div class="row justify-text-center ">
+                            <h3 class="text-dark ml-5 mr-5 ">{{ post.description|truncatewords:30 }}</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h4><a href="{% url 'post' post.id %}" class="text-dark"><i class="bi bi-layout-text-sidebar"></i> Show more...</a></h4>
+                            </div>
+                            <div class = "col-md-3">
+                                <h4 class="text-end"><i class="bi bi-person"></i> {{ post.author }}
+                                    <i class="bi bi-calendar-event"></i> {{ post.date_creation }}
+                                    {% if user == post.author %}
+                                        <a href="{% url 'post_edit' post.id %}">  <i class="bi bi-pencil"></i></a>
+                                {% endif %}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
 {% endblock %}
