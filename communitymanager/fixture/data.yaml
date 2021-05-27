@@ -1,0 +1,411 @@
+- model: communitymanager.community
+  pk: 1
+  fields:
+    name: Commb
+    followers:
+    - 1
+    - 2
+    - 3
+- model: communitymanager.community
+  pk: 2
+  fields:
+    name: Commc
+    followers:
+    - 1
+    - 2
+    - 3
+- model: communitymanager.community
+  pk: 3
+  fields:
+    name: commd
+    followers:
+    - 1
+    - 2
+- model: communitymanager.community
+  pk: 4
+  fields:
+    name: comme
+    followers:
+    - 1
+    - 2
+- model: communitymanager.community
+  pk: 5
+  fields:
+    name: commef
+    followers:
+    - 1
+    - 2
+- model: communitymanager.community
+  pk: 6
+  fields:
+    name: commg
+    followers:
+    - 1
+    - 2
+- model: communitymanager.priority
+  pk: 1
+  fields:
+    label: Urgent
+- model: communitymanager.priority
+  pk: 2
+  fields:
+    label: Normal
+- model: communitymanager.post
+  pk: 1
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 1
+    event: false
+    date_event: 2021-05-24
+    author: 2
+    description: Postb
+- model: communitymanager.post
+  pk: 2
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 2
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 3
+    description: postc
+- model: communitymanager.post
+  pk: 3
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 2
+    description: postb2
+- model: communitymanager.post
+  pk: 4
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 2
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 3
+    description: postc2
+- model: communitymanager.post
+  pk: 5
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 1
+    event: false
+    date_event: 2021-05-24
+    author: 1
+    description: postcreated1
+- model: communitymanager.post
+  pk: 6
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 2
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 3
+    description: second written post
+- model: communitymanager.post
+  pk: 7
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 3
+    description: post from cc in b
+- model: communitymanager.post
+  pk: 8
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 2
+    priority: 2
+    event: false
+    date_event: 2021-05-24
+    author: 3
+    description: mdr
+- model: communitymanager.post
+  pk: 9
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 1
+    event: false
+    date_event: null
+    author: 3
+    description: 17h48 post
+- model: communitymanager.post
+  pk: 10
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-24
+    community: 1
+    priority: 2
+    event: false
+    date_event: null
+    author: 2
+    description: lololo
+- model: communitymanager.post
+  pk: 11
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-25
+    community: 1
+    priority: 1
+    event: true
+    date_event: 2021-05-28
+    author: 2
+    description: Hello marie
+- model: communitymanager.post
+  pk: 12
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-25
+    community: 1
+    priority: 1
+    event: false
+    date_event: null
+    author: 1
+    description: last post modified
+- model: communitymanager.post
+  pk: 13
+  fields:
+    title: This is the new title
+    date_creation: 2021-05-25
+    community: 2
+    priority: 2
+    event: false
+    date_event: null
+    author: 1
+    description: last post here
+- model: communitymanager.post
+  pk: 14
+  fields:
+    title: It's late
+    date_creation: 2021-05-26
+    community: 1
+    priority: 1
+    event: false
+    date_event: null
+    author: 3
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+- model: communitymanager.post
+  pk: 15
+  fields:
+    title: A very good article
+    date_creation: 2021-05-26
+    community: 5
+    priority: 1
+    event: true
+    date_event: 2021-05-18
+    author: 1
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+      in culpa qui officia deserunt mollit anim id est laborum.
+- model: communitymanager.post
+  pk: 16
+  fields:
+    title: The last post I create here
+    date_creation: 2021-05-26
+    community: 1
+    priority: 1
+    event: false
+    date_event: 2021-05-28
+    author: 1
+    description: "Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement
+      du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature
+      latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur
+      du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins
+      les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant
+      tous les usages de ce mot dans la littérature classique, découvrit la source
+      incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33
+      du \"De Finibus Bonorum et Malorum\" (Des Suprêmes Biens et des Suprêmes Maux)
+      de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité
+      sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, \"Lorem ipsum
+      dolor sit amet...\", proviennent de la section 1.10.32.\r\n\r\nL'extrait standard
+      de Lorem Ipsum utilisé depuis le XVIè siècle est reproduit ci-dessous pour les
+      curieux. Les sections 1.10.32 et 1.10.33 du \"De Finibus Bonorum et Malorum\"
+      de Cicéron sont aussi reproduites dans leur version originale, accompagnée de
+      la traduction anglaise de H. Rackham (1914)."
+- model: communitymanager.comment
+  pk: 1
+  fields:
+    date_creation: 2021-05-24
+    content: i comment here
+    author: 2
+    post: 9
+- model: communitymanager.comment
+  pk: 2
+  fields:
+    date_creation: 2021-05-24
+    content: i don't want this
+    author: 1
+    post: 4
+- model: communitymanager.comment
+  pk: 3
+  fields:
+    date_creation: 2021-05-24
+    content: me neither
+    author: 1
+    post: 4
+- model: communitymanager.comment
+  pk: 4
+  fields:
+    date_creation: 2021-05-24
+    content: hello
+    author: 1
+    post: 6
+- model: communitymanager.comment
+  pk: 5
+  fields:
+    date_creation: 2021-05-24
+    content: trop bui1 le post
+    author: 2
+    post: 10
+- model: communitymanager.comment
+  pk: 6
+  fields:
+    date_creation: 2021-05-24
+    content: aaaa
+    author: 1
+    post: 9
+- model: communitymanager.comment
+  pk: 7
+  fields:
+    date_creation: 2021-05-24
+    content: zdzdzf
+    author: 2
+    post: 1
+- model: communitymanager.comment
+  pk: 8
+  fields:
+    date_creation: 2021-05-24
+    content: lalilo
+    author: 2
+    post: 1
+- model: communitymanager.comment
+  pk: 9
+  fields:
+    date_creation: 2021-05-25
+    content: i'm here going to do the forms
+    author: 2
+    post: 9
+- model: communitymanager.comment
+  pk: 10
+  fields:
+    date_creation: 2021-05-25
+    content: go away c
+    author: 2
+    post: 7
+- model: communitymanager.comment
+  pk: 11
+  fields:
+    date_creation: 2021-05-25
+    content: c pas très gentil...
+    author: 1
+    post: 11
+- model: communitymanager.comment
+  pk: 12
+  fields:
+    date_creation: 2021-05-25
+    content: c'est clair...
+    author: 1
+    post: 11
+- model: communitymanager.comment
+  pk: 13
+  fields:
+    date_creation: 2021-05-26
+    content: no i won't
+    author: 3
+    post: 7
+- model: communitymanager.comment
+  pk: 14
+  fields:
+    date_creation: 2021-05-26
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+      Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+      dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
+      congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
+      eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
+      scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in
+      risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent
+      egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut
+      augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus
+      et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
+      fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\r\n\r\nUt velit
+      mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit
+      pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc
+      turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus
+      nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer
+      quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer
+      adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien.
+      Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris
+      ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus
+      purus iaculis lectus, et tristique ligula justo vitae magna."
+    author: 3
+    post: 7
+- model: communitymanager.comment
+  pk: 15
+  fields:
+    date_creation: 2021-05-26
+    content: That is intresting but i can't log out...
+    author: 3
+    post: 14
+- model: communitymanager.comment
+  pk: 16
+  fields:
+    date_creation: 2021-05-26
+    content: coucou lé biatch
+    author: 2
+    post: 4
+- model: communitymanager.comment
+  pk: 17
+  fields:
+    date_creation: 2021-05-26
+    content: woowww i'm so impressed
+    author: 1
+    post: 15
+- model: communitymanager.comment
+  pk: 18
+  fields:
+    date_creation: 2021-05-26
+    content: this form sucks....
+    author: 3
+    post: 14
+- model: communitymanager.comment
+  pk: 19
+  fields:
+    date_creation: 2021-05-26
+    content: it is a bit better now
+    author: 2
+    post: 14
+- model: communitymanager.comment
+  pk: 20
+  fields:
+    date_creation: 2021-05-26
+    content: i'm not sure about that...
+    author: 2
+    post: 16
